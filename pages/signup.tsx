@@ -28,10 +28,8 @@ const SignupPage = () => {
 
   const onSubmit = async (data: SignupType) => {
     setLoading(true)
-    if(data.password_confirm===' '){
-      setPasswordError('Verify your password');
-    }
-   else if(data.password!==data.password_confirm){
+    if(data.password!==data.password_confirm){
+    setLoading(false)
       setPasswordError('password and confirm password does not match');
     }else{    
     try {
