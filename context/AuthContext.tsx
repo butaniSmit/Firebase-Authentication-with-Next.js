@@ -50,7 +50,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
    const res=await fetch(`https://firestore.googleapis.com/v1/projects/${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}/databases/(default)/documents/Users/${auth.currentUser?.uid}`)
    const result = await res.json();
    localStorage.setItem("logindata",result.fields.name.stringValue);
-   localStorage.setItem("Token",JSON.stringify(auth.currentUser?.refreshToken))
+   localStorage.setItem("Token",`${auth.currentUser?.uid}`)
     return logindata
   };
 
